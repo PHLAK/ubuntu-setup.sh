@@ -10,7 +10,7 @@ APTSOURCES=/etc/apt/sources.list.d
 # Functions
 # ==============================================================================
 
-systemUpgrade() {
+systemUpdate() {
     sudo apt-get update
     sudo apt-get -y upgrade
     sudo apt-get -y dist-upgrade
@@ -21,7 +21,7 @@ systemCleanup() {
     sudo apt-get -y autoclean
 }
 
-webServerSetup() {
+installWebServer() {
     # Install LAMP server and PHPMyAdmin
     sudo apt-get -y install lamp-server^ phpmyadmin
     
