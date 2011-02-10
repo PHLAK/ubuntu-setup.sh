@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Request root priveleges
-
 echo "Requesting root privileges... "
 
 if [ $(sudo whoami) != "root" ]; then
@@ -11,19 +10,17 @@ fi
 
 
 # Import resources
-
 source ./resources/functions.sh
 
 
 # Set some default variables.
-
 CONFIRM=false
 APTUPDATE=false
 SYSUPGRADE=false
 
 
 # ==============================================================================
-# Prompt to install everything
+# Prompt to install everything at once
 # ==============================================================================
 
 INSTALLALL=false
@@ -47,7 +44,6 @@ if [ $INSTALLALL == false ]; then
     while [ $CONFIRM == false ]; do
 
         # Prompt for each action to be performed
-
         echo ""
         echo -n "Install system updates? (y/n) [y] "
         read YN
@@ -59,7 +55,6 @@ if [ $INSTALLALL == false ]; then
 
 
         # Confirm all actions to be performed
-        
         echo ""
         echo "The following actions will be performed:"
         echo ""
