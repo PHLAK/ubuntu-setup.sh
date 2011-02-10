@@ -38,7 +38,7 @@ echo ""
 echo -n "Install everything? (y/n) [n] "
 read YN
 
-if [ "${YN}" == "n" ]; then
+if [ "${YN}" == "n" ] || [ "${YN}" == "" ]; then
     INSTALL_ALL=false
 else
     INSTALL_ALL=true
@@ -63,7 +63,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Perform system update? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             APT_UPDATE=true
             SYSTEM_UPDATE=true
         fi
@@ -73,7 +73,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install system extras? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_SYSTEM_EXTRAS=true
         fi
          
@@ -82,7 +82,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install developer tools? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_DEV_TOOLS=true
         fi
         
@@ -91,7 +91,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install design tools? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_DESIGN_TOOLS=true
         fi
         
@@ -100,7 +100,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install media tools? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_MEDIA_TOOLS=true
         fi
         
@@ -109,7 +109,7 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install security tools? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_SEC_TOOLS=true
         fi
          
@@ -118,19 +118,19 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install communication tools? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_COM_TOOLS=true
         fi
          
         # Install Sun Java?
         echo ""
-        echo -n "Install communication tools? (y/n) [y] "
+        echo -n "Install Sun Java? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSATLL_SUN_JAVA=true
 
-            echo -n "  Would you like to remove OpenJDK? (y/n) [y] "
+            echo -n "  Remove OpenJDK? (y/n) [y] "
             read YN
 
             if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
@@ -143,10 +143,10 @@ if [ $INSTALL_ALL == false ]; then
         echo -n "Install Dropbox? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             INSTALL_DROPBOX=true
             
-            echo -n "  Would you like to install the custom Dropbox icons? (y/n) [y] "
+            echo -n "  Install custom Dropbox icons? (y/n) [y] "
             read YN
 
             if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
@@ -204,7 +204,7 @@ if [ $INSTALL_ALL == false ]; then
         fi
         
             if [ $REMOVE_OPENJDK == true ]; then
-                echo "    -> OpenJDK will be removed"
+                echo "      -> OpenJDK will be removed"
             fi
             
         if [ $INSTALL_DROPBOX == true ]; then
@@ -212,7 +212,7 @@ if [ $INSTALL_ALL == false ]; then
         fi
         
             if [ $DROPBOX_ICONS == true ]; then
-                echo "    -> Custom Dropbox icons will be installed"
+                echo "      -> Custom Dropbox icons will be installed"
             fi
         
         if [ $INSTALL_WEB_SERVER == true ]; then
@@ -220,10 +220,10 @@ if [ $INSTALL_ALL == false ]; then
         fi
         
         echo ""
-        echo -n "Do you wish to proceed with these actions? (y/n) "
+        echo -n "Do you wish to proceed with these actions? (y/n) [y] "
         read YN
         
-        if [ "${YN}" == "y" ]; then
+        if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
             CONTINUE=true
         else
             # Reset variables
@@ -268,7 +268,7 @@ echo ""
 echo -n "Perform system cleanup now? (y/n) [y] "
 read YN
 
-if [ $YN == "y" ]; then
+if [ "${YN}" == "y" ] || [ "${YN}" == "" ]; then
     systemCleanup
 fi
 
