@@ -1,0 +1,4 @@
+# channel for the karmic (10.10) partner channel
+# 
+#:description:This channel contains the partner software for maverick
+deb http://archive.canonical.com/ubuntu maverick partner
